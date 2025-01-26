@@ -10,3 +10,6 @@ right click and go to note pad then scroll down to where is shows
 “LoadingPhase”: “Default”
 }
 and turn the Default into PreDefault. This is an unreal issue and they are aware of it to some extent but it seems to be a running issue throughout the several versions of Unreal Engine 5
+
+
+If you are curious as to what this project is about, well it is a game about finding acceptance through grief. Currently it is in its early stages so there is only a basic level and movement, if you are interested in helping and find this project interesting let Macy1123 know and they will let you know what is currently in production or needs work!
