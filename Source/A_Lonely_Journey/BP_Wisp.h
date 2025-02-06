@@ -7,7 +7,7 @@
 #include "BP_Wisp.generated.h"
 
 UCLASS()
-class A_LONELY_JOURNEY_API ABP_Wisp : public AActor
+class A_LONELY_JOURNEY_API ABP_Wisp : public ABP_BaseEnemy
 {
 	GENERATED_BODY()
 	
