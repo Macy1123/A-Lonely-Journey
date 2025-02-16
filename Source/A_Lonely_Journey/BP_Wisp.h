@@ -15,12 +15,22 @@ public:
 	// Sets default values for this actor's properties
 	ABP_Wisp();
 
+	UFUNCTION()
+	void FireProjectile();
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	class APawn* ProjectileObject;
+	/*UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	class USkeletalMeshComponent* SkeletalMeshComp;*/
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TSubclassOf<class ABP_Projectile> SpawnClass;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	UFUNCTION()
+	void canShoot();
 };
