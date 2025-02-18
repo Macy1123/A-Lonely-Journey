@@ -37,7 +37,7 @@ void ABP_Wisp::BeginPlay()
 		Destroy();
 	}
 	//Debug Fire
-	FireProjectile();
+	//FireProjectile();
 }
 
 // Called every frame
@@ -45,7 +45,7 @@ void ABP_Wisp::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	//FireProjectile();
+	FireProjectile();
 }
 
 void ABP_Wisp::canShoot()

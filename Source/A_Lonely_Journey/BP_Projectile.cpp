@@ -28,7 +28,7 @@ void ABP_Projectile::BeginPlay()
 	FTimerHandle pTimer;
 	SphereCollision->OnComponentBeginOverlap.AddDynamic(this, &ABP_Projectile::CommonOverlap);
 
-	//GetWorld()->GetTimerManager().SetTimer(pTimer, this, &ABP_Projectile::K2_DestroyActor, 3.5f);
+	GetWorld()->GetTimerManager().SetTimer(pTimer, this, &ABP_Projectile::K2_DestroyActor, 3.5f);
 }
 
 void ABP_Projectile::CommonOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
