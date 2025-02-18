@@ -21,7 +21,8 @@ void ABP_Wisp::FireProjectile()
 
 	if (sParameters.Owner == nullptr)
 	{
-		//UE_LOG(Game, Error, TEXT("ProjectileObject null error"));
+		
+
 	}
 }
 
