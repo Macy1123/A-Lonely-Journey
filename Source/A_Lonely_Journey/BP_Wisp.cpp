@@ -2,7 +2,7 @@
 
 
 #include "BP_Wisp.h"
-#include "Components/SkeletalMeshComponent.h"
+//#include "Components/SkeletalMeshComponent.h"
 #include "BP_Projectile.h"
 
 // Sets default values
