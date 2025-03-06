@@ -24,7 +24,7 @@ void ABP_Projectile::BeginPlay()
 {
 	Super::BeginPlay();
 
-	SetActorScale3D(FVector(1.f, 1.f, 1.f));
+	SetActorScale3D(FVector(.5f, .5f, .5f));
 	FTimerHandle pTimer;
 	SphereCollision->OnComponentBeginOverlap.AddDynamic(this, &ABP_Projectile::CommonOverlap);
 

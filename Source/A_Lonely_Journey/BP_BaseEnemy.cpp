@@ -2,6 +2,7 @@
 
 
 #include "BP_BaseEnemy.h"
+#include "EnemyAIController.h"
 
 // Sets default values
 ABP_BaseEnemy::ABP_BaseEnemy()
@@ -11,6 +12,8 @@ ABP_BaseEnemy::ABP_BaseEnemy()
 	//SkeletalMeshComp = CreateDefaultSubobject<USkeletalMeshComponent>("SkeletalMeshComponent");
 	//SkeletalMeshComp->SetRelativeLocation(FVector(0.f, 0.f, -90.f));
 	//SkeletalMeshComp->SetRelativeRotation(FRotator(0.f, -90.f, 0.f));
+	SkeletalMeshComp = CreateDefaultSubobject<USkeletalMeshComponent>("SkeletalMeshComponent");
+	SetRootComponent(SkeletalMeshComp);
 }
 
 // Called when the game starts or when spawned
