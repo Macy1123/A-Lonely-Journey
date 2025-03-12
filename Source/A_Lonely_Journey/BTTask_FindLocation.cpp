@@ -16,13 +16,13 @@ EBTNodeResult::Type UBTTask_FindLocation::ExecuteTask(UBehaviorTreeComponent& be
 	FVector currlocal = pawn->GetActorLocation();
 	FVector randlocal;
 
-	/*UNavigationSystemV1* navsys = FNavigationSystem::GetCurrent<UNavigationSystemV1>(GetWorld());
+	//UNavigationSystemV1* navsys = FNavigationSystem::GetCurrent<UNavigationSystemV1>(GetWorld());
 
-	bool validLocalFound = navsys->K2_GetRandomLocationInNavigableRadius(GetWorld(), currlocal, randlocal, 1000.0f);
+	//bool validlocalfound = navsys->K2_GetRandomLocationInNavigableRadius(GetWorld(), currlocal, randlocal, 1000.0f);
 
 	blackboard->SetValueAsVector(location, randlocal);
 
-	if (validLocalFound)
+	/*if (validlocalfound)
 	{
 		return EBTNodeResult::Succeeded;
 	}*/

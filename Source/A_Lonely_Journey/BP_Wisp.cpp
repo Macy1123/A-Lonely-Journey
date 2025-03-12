@@ -4,6 +4,7 @@
 #include "BP_Wisp.h"
 //#include "Components/SkeletalMeshComponent.h"
 #include "BP_Projectile.h"
+#include <Engine/SkeletalMeshSocket.h>
 
 // Sets default values
 ABP_Wisp::ABP_Wisp()
@@ -17,7 +18,7 @@ void ABP_Wisp::FireProjectile()
 	FActorSpawnParameters sParameters;
 	sParameters.Owner = ProjectileObject->GetController();
 	sParameters.Instigator = ProjectileObject;
-	GetWorld()->SpawnActor<AActor>(SpawnClass, SkeletalMeshComp->GetSocketLocation("ProjectileSocket"), ProjectileObject->GetBaseAimRotation(), sParameters);
+	GetWorld()->SpawnActor<AActor>(SpawnClass, GetMesh()->GetSocketLocation("ProjectileSocket"), ProjectileObject->GetBaseAimRotation(), sParameters);
 
 	if (sParameters.Owner == nullptr)
 	{
@@ -36,6 +37,7 @@ void ABP_Wisp::BeginPlay()
 	{
 		Destroy();
 	}
+
 	//Debug Fire
 	FireProjectile();
 }

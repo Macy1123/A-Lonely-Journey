@@ -45,7 +45,7 @@ void AEnemyAIController::InEnemySight(AActor* actor, FAIStimulus const simu)
 {
 	if (auto* const actCast = Cast<AA_Lonely_JourneyCharacter>(actor))
 	{
- 		GetBlackboardComponent()->SetValueAsObject("Player", actor);
+  		GetBlackboardComponent()->SetValueAsObject("Player", actor);
 	}
 	else
 	{

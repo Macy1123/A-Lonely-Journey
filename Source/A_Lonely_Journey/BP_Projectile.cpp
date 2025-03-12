@@ -4,6 +4,8 @@
 #include "BP_Projectile.h"
 #include "Components/SphereComponent.h"
 #include "Components/StaticMeshComponent.h"
+#include "Kismet/GameplayStatics.h"
+#include "BP_BaseEnemy.h"
 
 // Sets default values
 ABP_Projectile::ABP_Projectile()
@@ -33,6 +35,37 @@ void ABP_Projectile::BeginPlay()
 
 void ABP_Projectile::CommonOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
+	ACharacter* player = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0);
+
+
+	if (OtherActor && (OtherActor != this) && OtherComp)
+	{
+
+		if ((OtherActor == player) && (this->GetOwner() != player))
+		{
+			ACharacter* pCast = Cast<ACharacter>(OtherActor);
+			if (pCast)
+			{
+				UGameplayStatics::ApplyDamage(pCast, 1, nullptr, this, nullptr);
+				Destroy();
+
+			}
+
+
+		}
+
+		if (this->GetOwner() == player)
+		{
+			ABP_BaseEnemy* EAgent = Cast<ABP_BaseEnemy>(OtherActor);
+			if (EAgent)
+			{
+				UGameplayStatics::ApplyDamage(EAgent, 1, nullptr, this, nullptr);
+				Destroy();
+			}
+		}
+
+	}
+
 }
 
 // Called every frame

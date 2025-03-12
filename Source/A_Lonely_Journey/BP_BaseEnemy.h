@@ -19,8 +19,8 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-	class USkeletalMeshComponent* SkeletalMeshComp;
+	/*UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	class USkeletalMeshComponent* Mesh;*/
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
