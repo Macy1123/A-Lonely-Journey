@@ -15,7 +15,7 @@ class A_LONELY_JOURNEY_API UBTTask_FindLocation : public UBTTaskNode
 	GENERATED_BODY()
 	
 public:
-	virtual EBTNodeResult::Type ExecuteTask(UBehaviorTreeComponent& b, uint8* node) override;
+	virtual EBTNodeResult::Type ExecuteTask(UBehaviorTreeComponent& behaivior, uint8* node) override;
 
 	virtual void OnGameplayTaskActivated(UGameplayTask& Task) override;
 

@@ -7,25 +7,27 @@
 #include "BehaviorTree/BlackboardComponent.h"
 #include "BehaviorTree/Blackboard/BlackboardKeyType_Vector.h"
 
-EBTNodeResult::Type UBTTask_FindLocation::ExecuteTask(UBehaviorTreeComponent& behaivior, uint8* node)
+EBTNodeResult::Type UBTTask_FindLocation::ExecuteTask(UBehaviorTreeComponent& b, uint8* node)
 {
-	auto* AI = behaivior.GetAIOwner();
-	auto* pawn = AI->GetPawn();
-	auto blackboard = AI->GetBlackboardComponent();
+	auto* ownAI = b.GetAIOwner();
+	auto* gPawncontr = ownAI->GetPawn();
+	auto mBlackb = ownAI->GetBlackboardComponent();
 
-	FVector currlocal = pawn->GetActorLocation();
+	FVector currlocal = gPawncontr->GetActorLocation();
 	FVector randlocal;
 
-	//UNavigationSystemV1* navsys = FNavigationSystem::GetCurrent<UNavigationSystemV1>(GetWorld());
+	UNavigationSystemV1* navsys = FNavigationSystem::GetCurrent<UNavigationSystemV1>(GetWorld());
 
-	//bool validlocalfound = navsys->K2_GetRandomLocationInNavigableRadius(GetWorld(), currlocal, randlocal, 1000.0f);
+	bool validlocalfound = navsys->K2_GetRandomLocationInNavigableRadius(GetWorld(), currlocal, randlocal, 1000.0f);
 
-	blackboard->SetValueAsVector(location, randlocal);
+	mBlackb->SetValueAsVector(location, randlocal);
 
-	/*if (validlocalfound)
+	if (validlocalfound)
 	{
 		return EBTNodeResult::Succeeded;
-	}*/
+	}
+
+
 
 	return EBTNodeResult::Failed;
 }

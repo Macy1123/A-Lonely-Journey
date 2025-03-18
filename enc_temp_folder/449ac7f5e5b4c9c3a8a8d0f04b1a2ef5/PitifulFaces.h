@@ -14,6 +14,4 @@ class A_LONELY_JOURNEY_API APitifulFaces : public ABP_BaseEnemy
 {
 	GENERATED_BODY()
 	
-public:
-	void PitifulFaces();
 };
