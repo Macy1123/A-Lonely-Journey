@@ -43,7 +43,7 @@ void AEnemyAIController::SetupSight()
 
 void AEnemyAIController::InEnemySight(AActor* actor, FAIStimulus const simu)
 {
-	if (/*auto* const actCast = Cast<AA_Lonely_JourneyCharacter>(actor)*/ simu.WasSuccessfullySensed())
+	if (/*auto* const actCast = Cast<AA_Lonely_JourneyCharacter>(actor)*/ simu.WasSuccessfullySensed() && actor->ActorHasTag("Player"))
 	{
   		GetBlackboardComponent()->SetValueAsObject("Player", actor);
 	}
