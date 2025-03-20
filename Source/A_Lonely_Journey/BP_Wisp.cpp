@@ -3,7 +3,6 @@
 
 #include "BP_Wisp.h"
 //#include "Components/SkeletalMeshComponent.h"
-#include "BP_Projectile.h"
 #include <Engine/SkeletalMeshSocket.h>
 
 // Sets default values
@@ -11,20 +10,6 @@ ABP_Wisp::ABP_Wisp()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-}
-
-void ABP_Wisp::FireProjectile()
-{
-	FActorSpawnParameters sParameters;
-	sParameters.Owner = ProjectileObject->GetController();
-	sParameters.Instigator = ProjectileObject;
-	GetWorld()->SpawnActor<AActor>(SpawnClass, GetMesh()->GetSocketLocation("ProjectileSocket"), ProjectileObject->GetBaseAimRotation(), sParameters);
-
-	if (sParameters.Owner == nullptr)
-	{
-		
-
-	}
 }
 
 // Called when the game starts or when spawned

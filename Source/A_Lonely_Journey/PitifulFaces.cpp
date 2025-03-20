@@ -8,3 +8,17 @@ void APitifulFaces::PitifulFaces()
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 }
+
+void APitifulFaces::BeginPlay()
+{
+	Super::BeginPlay();
+
+	ProjectileObject = Cast<APawn>(this);
+	if (!ProjectileObject)
+	{
+		Destroy();
+	}
+
+	//Debug Fire
+	FireProjectile();
+}

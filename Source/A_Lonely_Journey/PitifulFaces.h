@@ -16,4 +16,8 @@ class A_LONELY_JOURNEY_API APitifulFaces : public ABP_BaseEnemy
 	
 public:
 	void PitifulFaces();
+
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
 };
