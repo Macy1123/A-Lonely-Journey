@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "AIController.h"
 #include "Perception/AIPerceptionTypes.h"
+#include "BehaviorTree/BlackboardComponent.h"
 #include "EnemyAIController.generated.h"
 
 /**
@@ -17,7 +18,7 @@ class A_LONELY_JOURNEY_API AEnemyAIController : public AAIController
 
 public:
 
-	AEnemyAIController(FObjectInitializer const& OI);
+	AEnemyAIController(/*FObjectInitializer const& OI*/);
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class UBehaviorTree* BTree;
@@ -30,7 +31,9 @@ public:
 	virtual void OnPossess(APawn* possPawn) override;
 
 	void SetupSight();
+	
 	//Blackboard 
+	//UBlackboardComponent* Blackboard;
 
 	UFUNCTION()
 	void InEnemySight(AActor* actor, FAIStimulus const simu);

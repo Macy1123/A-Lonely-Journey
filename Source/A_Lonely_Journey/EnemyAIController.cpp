@@ -6,11 +6,12 @@
 #include "Perception/AISenseConfig_Sight.h"
 #include "Perception/AIPerceptionComponent.h"
 #include "A_Lonely_JourneyCharacter.h"
-#include "BehaviorTree/BlackboardComponent.h"
 
-AEnemyAIController::AEnemyAIController(FObjectInitializer const& OI)
+AEnemyAIController::AEnemyAIController()
 {
 	SetupSight();
+
+	playerKey = FName("Player");
 }
 
 void AEnemyAIController::OnPossess(APawn* possPawn)
@@ -31,7 +32,7 @@ void AEnemyAIController::SetupSight()
 		sightConfig->LoseSightRadius = 1000.0f;
 		sightConfig->PeripheralVisionAngleDegrees = 40.0f;
 		sightConfig->AutoSuccessRangeFromLastSeenLocation = 300.0f;
-		sightConfig->DetectionByAffiliation.bDetectEnemies = false;
+		sightConfig->DetectionByAffiliation.bDetectEnemies = true;
 		sightConfig->DetectionByAffiliation.bDetectFriendlies = false;
 		sightConfig->DetectionByAffiliation.bDetectNeutrals = true;
 
@@ -43,14 +44,18 @@ void AEnemyAIController::SetupSight()
 
 void AEnemyAIController::InEnemySight(AActor* actor, FAIStimulus const simu)
 {
-	if (/*auto* const actCast = Cast<AA_Lonely_JourneyCharacter>(actor)*/ simu.WasSuccessfullySensed() && actor->ActorHasTag("Player"))
+	//if(auto* const actCast = Cast<AA_Lonely_JourneyCharacter>(actor))
+	if (simu.WasSuccessfullySensed() && actor->ActorHasTag("Player"))
 	{
-  		GetBlackboardComponent()->SetValueAsObject("Player", actor);
+  		//GetBlackboardComponent()->SetValueAsObject(playerKey, actor);
+		GetBlackboardComponent()->SetValueAsName("playerKey", playerKey);
 	}
 	else
 	{
-		GetBlackboardComponent()->ClearValue("Player");
+		GetBlackboardComponent()->ClearValue("playerKey");
+		//Destroy();
 	}
+
 }
 
 void AEnemyAIController::HandlePerception(AActor actor)
